@@ -1,10 +1,10 @@
 class Noticia {
     // 2) "constructor" están en el interior de las clases y se configuran: qué propiedades configuran al objeto y qué valor toma esa propiedad.
-                constructor(t, a, c, i) {
+                constructor(t, a, d, th) {
                     this.titulo = t
                     this.autor = a
-                    this.cuerpo = c
-                    this.imagen = i
+                    this.cuerpo = d
+                    this.imagen = th
             }
 
   /*          AgregarImagen() {
@@ -20,9 +20,7 @@ class Noticia {
                        }
 */
             Mostrar() {
-console.log("El que ejecuto este metodo es:")
-console.log(this)	 
-            
+
                 let ficha = document.createElement("article")
                     ficha.classList.add("row", "noticia")
 

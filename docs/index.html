@@ -228,16 +228,16 @@
 			noticiaX.Mostrar()
 			
 */
-		fetch("noticias.json").then(function (rta) {
+		fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.infobae.com%2Fargentina-rss.xml").then(function (rta) {
 			let objetos = rta.json()
 			return objetos
 		}).then(function (objetos) {
-			return objetos.map(({
-				titulo,
-				autor,
-				cuerpo,
-				imagen
-			}) => new Noticia(titulo, autor, cuerpo, imagen))
+			return objetos.items.map(({
+				title,
+				author,
+				description,
+				enclosure
+			}) => new Noticia(title, author, description, enclosure.url))
 		}).then(function (noticias) {
 			noticias.forEach(function (noticia) {
 				noticia.Mostrar()
